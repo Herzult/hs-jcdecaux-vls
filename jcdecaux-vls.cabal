@@ -17,7 +17,8 @@ Build-type:         Simple
 Cabal-version:      >=1.8
 
 Library
-  Exposed-modules:  JCDecaux.Vls.Api
+  Exposed-modules:  JCDecaux.Vls
+                  , JCDecaux.Vls.Api
                   , JCDecaux.Vls.Types
 
   Build-depends:    base == 4.6.*
