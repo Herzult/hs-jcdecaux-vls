@@ -32,6 +32,7 @@ data Contract = Contract {
     contractName           :: Text
   , contractCommercialName :: Text
   , contractCities         :: [City]
+  , contractCountryCode    :: Text
 } deriving (Show, Eq)
 
 instance FromJSON Contract where
@@ -39,12 +40,14 @@ instance FromJSON Contract where
                        <$> v .: "name"
                        <*> v .: "commercial_name"
                        <*> v .: "cities"
+                       <*> v .: "country_code"
     parseJSON _ = mzero
 
 instance ToJSON Contract where
     toJSON c = object ["name"            .= contractName c
                       ,"commercial_name" .= contractCommercialName c
-                      , "cities"         .= contractCities c
+                      ,"cities"          .= contractCities c
+                      ,"country_code"    .= contractCountryCode c
                       ]
 
 data StationStatus = Open | Closed deriving (Show, Eq)
